@@ -11,18 +11,18 @@ let counter = 0;
 // add new div to page when button is clicked
 btn.addEventListener('click', function () {
     let myDiv = document.createElement('div');
-    document.body.append(myDiv);
+    let hoverText = document.createTextNode(counter);
     container.append(myDiv);
+
+    myDiv.id = counter;
     myDiv.className = 'myDiv';
     myDiv.style.cssFloat = 'left';
     myDiv.style.lineHeight = '100px';
     myDiv.style.margin = '5px';
-
-    // value of square id should display in center when hovered over
-    myDiv.id = counter;
-    let hoverText = document.createTextNode(counter)
-    counter++;
     myDiv.style.textAlign = 'center';
+
+    counter++;
+
     myDiv.addEventListener('mouseover', function () {
         myDiv.append(hoverText);
         myDiv.style.color = 'peachpuff';
@@ -54,9 +54,7 @@ btn.addEventListener('click', function () {
             if (myDiv.previousSibling === null) {
                 alert('Nothing is there!');
             } else {
-                myDiv.previousSibling.remove({
-                    container
-                });
+                myDiv.previousSibling.remove();
             };
         };
     });
